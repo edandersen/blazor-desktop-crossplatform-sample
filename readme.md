@@ -1,6 +1,6 @@
 # Cross platform Blazor Desktop example
 
-This hacked together sample shows a Blazor Desktop app running in both a web browser and in a WinForms wrapper with interop. This uses the default Blazor Server template app.
+This hacked together sample shows a Blazor Desktop (using the offical APIs coming in .NET 6) app running in both a web browser and in an early version of the official WinForms wrapper. This uses the default Blazor Server template as an example which is a bit prettier than the one on the .NET 6 Preview 2 announcement post.
 
 ![docs/blazor-desktop-xplat.gif](docs/blazor-desktop-xplat.gif)
 
