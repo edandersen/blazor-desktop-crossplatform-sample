@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Blazor WPF app</title>
+    <base href="/" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link href="css/site.css" rel="stylesheet" />
+    <link href="BlazorWpfApp.styles.css" rel="stylesheet" />
+
+    <!-- for water demo page -->
+    <script src="water/OES_texture_float_linear-polyfill.js"></script>
+    <script src="water/lightgl.js"></script>
+    <script src="water/cubemap.js"></script>
+    <script src="water/renderer.js"></script>
+    <script src="water/water.js"></script>
+    <script src="water/main.js"></script>
+</head>
+
+<body>
+    <!-- water demo -->
+    <img id="tiles" style="display: none" src="_content/WebviewAppShared/water/tiles.jpg">
+    <img id="xneg" style="display: none" src="_content/WebviewAppShared/water/xneg.jpg">
+    <img id="xpos" style="display: none" src="_content/WebviewAppShared/water/xpos.jpg">
+    <img id="ypos" style="display: none" src="_content/WebviewAppShared/water/ypos.jpg">
+    <img id="zneg" style="display: none" src="_content/WebviewAppShared/water/zneg.jpg">
+    <img id="zpos" style="display: none" src="_content/WebviewAppShared/water/zpos.jpg">
+    <div id="app"></div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+
+    <script src="_framework/blazor.webview.js"></script>
+</body>
+
+</html>
