@@ -1,6 +1,7 @@
 ﻿@page "/water"
 @inject WebviewAppTest.AppState AppState
 @inject IJSRuntime JSRuntime  
+@inject NavigationManager NavigationManager
 
 <h1>Water</h1>
 
@@ -48,8 +49,23 @@
 
 
 @code {
+
+    protected override void OnInitialized()
+    {
+      // Subscribe to the event
+      NavigationManager.LocationChanged += LocationChanged;
+      base.OnInitialized();
+    }
+
+    void LocationChanged(object sender, LocationChangedEventArgs e)
+    {
+      // force a page reload when navigating away from the Water demo because it crashes on reload otherwise
+      NavigationManager.NavigateTo(e.Location, forceLoad: true);
+    }
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         await JSRuntime.InvokeVoidAsync("window.startWaterDemo", new object[] { "hi" });
     }
+
 } 
