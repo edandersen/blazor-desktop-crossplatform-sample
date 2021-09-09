@@ -10,8 +10,8 @@ Because you now have the power of Chromium you can now do cool WebGL things like
 
 ![docs/blazor-desktop-xplat-water.gif](docs/blazor-desktop-xplat-water.gif)
 
-To run it open ```/BlazorDesktopTest.sln``` in Visual Studio 2022 Preview 1 with the .NET 6 Preview 5 SDK installed and "Enable Preview .NET SDKs" turned on. You can then F5 the BlazorDesktopTest and BlazorWinFormsApp projects. 
+To run it open ```/BlazorDesktopTest.sln``` in Visual Studio 2022 Preview 3 with the .NET 6 Preview 7 SDK installed and "Enable Preview .NET SDKs" turned on. You can then F5 the BlazorDesktopTest and BlazorWinFormsApp projects. 
 
-Updated for .NET 6 Preview 5 and the official ```Microsoft.AspNetCore.Components.WebView``` nuget package on 24th June 2021.
+Updated for .NET 6 Preview 7 and the official ```Microsoft.AspNetCore.Components.WebView``` nuget package on 9th September 2021.
 
 Contains a snazzy WebGL water demo from https://github.com/evanw/webgl-water. No way could I write this!
