@@ -30,8 +30,9 @@ var cubemap;
 var renderer;
 var angleX = -25;
 var angleY = -200.5;
-var offsetX = 250; // canvas offsetX compensation
-var offsetY = 0; // canvas offsetY compensation
+
+// Canvas offset compensation
+var offsetX, offsetY;
 
 // Sphere physics info
 var useSpherePhysics = false;
@@ -46,8 +47,8 @@ window.startWaterDemo = function() {
   var ratio = window.devicePixelRatio || 1;
   var help = document.getElementById('help');
 
-  function onresize() {
-    var width = innerWidth - help.clientWidth - 20;
+  function handleResize() {
+    var width = innerWidth - help.clientWidth/* - 20*/;
     var height = innerHeight;
     gl.canvas.width = width * ratio;
     gl.canvas.height = height * ratio;
@@ -59,6 +60,10 @@ window.startWaterDemo = function() {
     gl.perspective(45, gl.canvas.width / gl.canvas.height, 0.01, 100);
     gl.matrixMode(gl.MODELVIEW);
     draw();
+    offsetX = window.getComputedStyle(document.querySelector('canvas'), null)
+      .getPropertyValue("left").replace("px", '');
+    offsetY = window.getComputedStyle(document.querySelector('canvas'), null)
+      .getPropertyValue("top").replace("px", '');
   }
 
   document.body.appendChild(gl.canvas);
@@ -89,7 +94,7 @@ window.startWaterDemo = function() {
   }
 
   document.getElementById('loading').innerHTML = '';
-  onresize();
+  handleResize();
 
   var requestAnimationFrame =
     window.requestAnimationFrame ||
@@ -108,7 +113,8 @@ window.startWaterDemo = function() {
   }
   requestAnimationFrame(animate);
 
-  window.onresize = onresize;
+  window.onresize = handleResize;
+  window.onorientationchange = handleResize;
 
   var prevHit;
   var planeNormal;
@@ -202,13 +208,13 @@ window.startWaterDemo = function() {
   document.ontouchstart = function(e) {
     if (e.touches.length === 1 && !isHelpElement(e.target)) {
       e.preventDefault();
-      startDrag(e.touches[0].pageX, e.touches[0].pageY);
+      startDrag(e.touches[0].pageX - offsetX, e.touches[0].pageY - offsetY);
     }
   };
 
   document.ontouchmove = function(e) {
     if (e.touches.length === 1) {
-      duringDrag(e.touches[0].pageX, e.touches[0].pageY);
+      duringDrag(e.touches[0].pageX - offsetX, e.touches[0].pageY - offsetY);
     }
   };
 
