@@ -17,13 +17,14 @@ namespace BlazorWpfApp
 
         public MainWindow()
         {
+            InitializeComponent();
+
             var serviceCollection = new ServiceCollection();
-            serviceCollection.AddBlazorWebView();
+            serviceCollection.AddWpfBlazorWebView();
             serviceCollection.AddSingleton<AppState>(_appState);
             serviceCollection.AddSingleton<WeatherForecastService>();
             Resources.Add("services", serviceCollection.BuildServiceProvider());
 
-            InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -38,4 +39,6 @@ namespace BlazorWpfApp
     // Workaround for compiler error "error MC3050: Cannot find the type 'local:Main'"
     // It seems that, although WPF's design-time build can see Razor components, its runtime build cannot.
     public partial class Main { }
+
+    // Helpful guide on WCF: https://docs.microsoft.com/en-us/aspnet/core/blazor/hybrid/tutorials/wpf?view=aspnetcore-6.0
 }

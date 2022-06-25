@@ -18,7 +18,7 @@ namespace BlazorWinFormsApp
         public Form1()
         {
             var serviceCollection = new ServiceCollection();
-            serviceCollection.AddBlazorWebView();
+            serviceCollection.AddWindowsFormsBlazorWebView();
             serviceCollection.AddSingleton<AppState>(_appState);
 
             serviceCollection.AddSingleton<WeatherForecastService>();
@@ -38,4 +38,6 @@ namespace BlazorWinFormsApp
                 caption: "Counter");
         }
     }
+
+    //Helpful guide on Winforms: https://docs.microsoft.com/en-us/aspnet/core/blazor/hybrid/tutorials/windows-forms?view=aspnetcore-6.0
 }
