@@ -10,6 +10,12 @@
 @code {
     private int currentCount = 0;
 
+    protected override void OnInitialized()
+    {
+        currentCount = AppState.Counter;
+        base.OnInitialized();
+    }
+
     private void IncrementCount()
     {
         currentCount++;
